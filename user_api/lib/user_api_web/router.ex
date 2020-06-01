@@ -8,7 +8,7 @@ defmodule UserApiWeb.Router do
   scope "/api", UserApiWeb do
     pipe_through :api
     resources "/users", UserController, except: [:new, :edit]
-    post "/users/login", UserController, :login
+    post "/login", UserController, :login
   end
 
   # Enables LiveDashboard only for development

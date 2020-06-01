@@ -40,4 +40,15 @@ defmodule UserApiWeb.UserController do
       send_resp(conn, :no_content, "")
     end
   end
+
+  def login(conn, %{"user" => auth_params}) do
+    user = Accounts.get_by_username(auth_params["username"])
+    case Bcrypt.check_pass(user, auth_params["encrypted_password"]) do
+      {:ok, user} ->
+        conn
+        |> render("show.json", user: user)
+      :error ->
+        conn
+    end
+  end
 end
