@@ -45,7 +45,8 @@ defmodule UserApi.MixProject do
       {:bcrypt_elixir, "~> 2.2"},
       {:guardian, "~> 2.1"},
       {:comeonin, "~> 5.3"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:corsica, "~> 1.0"}
     ]
   end
 

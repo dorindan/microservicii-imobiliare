@@ -5,7 +5,7 @@ defmodule UserApiWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", UserApiWeb do
+  scope "/", UserApiWeb do
     pipe_through :api
     resources "/users", UserController, except: [:new, :edit]
     post "/login", UserController, :login

@@ -11,7 +11,7 @@ defmodule UserApiWeb.UserController do
     render(conn, "index.json", users: users)
   end
 
-  def create(conn, %{"user" => user_params}) do
+  def create(conn, user_params) do
     with {:ok, %User{} = user} <- Accounts.create_user(user_params) do
       conn
       |> put_status(:created)
@@ -20,7 +20,7 @@ defmodule UserApiWeb.UserController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
+  def show(conn, id) do
     user = Accounts.get_user!(id)
     render(conn, "show.json", user: user)
   end
@@ -41,7 +41,7 @@ defmodule UserApiWeb.UserController do
     end
   end
 
-  def login(conn, %{"user" => auth_params}) do
+  def login(conn, auth_params) do
     user = Accounts.get_by_username(auth_params["username"])
     case Bcrypt.check_pass(user, auth_params["encrypted_password"]) do
       {:ok, user} ->
