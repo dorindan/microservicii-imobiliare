@@ -1,9 +1,9 @@
-defmodule UserApi.MixProject do
+defmodule ApartmentsApi.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :user_api,
+      app: :apartments_api,
       version: "0.1.0",
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -19,7 +19,7 @@ defmodule UserApi.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {UserApi.Application, []},
+      mod: {ApartmentsApi.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -42,12 +42,7 @@ defmodule UserApi.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:bcrypt_elixir, "~> 2.2"},
-      {:guardian, "~> 2.1"},
-      {:comeonin, "~> 5.3"},
-      {:plug_cowboy, "~> 2.0"},
-      {:corsica, "~> 1.0"},
-      {:distillery, "~> 2.1"}
+      {:plug_cowboy, "~> 2.0"}
     ]
   end
 

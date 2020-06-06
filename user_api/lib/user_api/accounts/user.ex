@@ -3,6 +3,7 @@ defmodule UserApi.Accounts.User do
   import Ecto.Changeset
 
   schema "users" do
+    Code.require_file("../apartments_api/lib/apartments_api/apartments/apartment.ex")
     field :email, :string
     field :encrypted_password, :string
     field :firstName, :string
@@ -10,6 +11,7 @@ defmodule UserApi.Accounts.User do
     field :telephone, :string
     field :username, :string
     field :password, :string, virtual: true
+    has_many :apartments, ApartmentsApi.Apartments.Apartment
 
     timestamps()
   end
